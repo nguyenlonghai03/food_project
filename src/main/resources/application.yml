@@ -14,3 +14,8 @@ spring:
 server:
   servlet:
     context-path: /api
+
+#@ConfigurationProperties: Tự map key bên application thành đối tượng
+#@Value(${tenKey}): Lấy giá trị key bên application thành biến
+file:
+  upload-dir: C:\Users\HP\OneDrive\Máy tính\img
