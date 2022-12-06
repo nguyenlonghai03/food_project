@@ -1,6 +1,7 @@
 package com.cybersoft.food_project.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name="user") // ánh xạ tới bảng user
 public class UserEntity {
@@ -17,6 +18,8 @@ public class UserEntity {
     @Column(name = "fullname")
     private String fullname;
 
+    @OneToOne(mappedBy = "user") // Tên bảng map qua
+    private UserDetailEntity userDetail;
     @Column(name = "token")
     private String token;
 
@@ -34,6 +37,36 @@ public class UserEntity {
 
     @Column(name = "is_active")
     private boolean isActive;
+
+    @OneToMany(mappedBy = "user")
+    private Set<FoodReviewEntity> foodReviews;
+
+    @OneToMany(mappedBy = "user")
+    private Set<TOrderEntity> tOrders;
+
+    public Set<TOrderEntity> gettOrders() {
+        return tOrders;
+    }
+
+    public void settOrders(Set<TOrderEntity> tOrders) {
+        this.tOrders = tOrders;
+    }
+
+    public Set<FoodReviewEntity> getFoodReviews() {
+        return foodReviews;
+    }
+
+    public void setFoodReviews(Set<FoodReviewEntity> foodReviews) {
+        this.foodReviews = foodReviews;
+    }
+
+    public UserDetailEntity getUserDetail() {
+        return userDetail;
+    }
+
+    public void setUserDetail(UserDetailEntity userDetail) {
+        this.userDetail = userDetail;
+    }
 
     public int getId() {
         return id;
