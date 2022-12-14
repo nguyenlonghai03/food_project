@@ -1,5 +1,7 @@
 package com.cybersoft.food_project.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity(name = "restaurant_review")
@@ -16,6 +18,7 @@ public class RestaurantReviewEntity { // Cứ giữ khóa ngoại thì là nhi�
 
     @ManyToOne()
     @JoinColumn(name = "id_restaurant") // chỉ định id khóa ngoại
+    //@JsonIgnore // Tranhs lỗi lặp vô tận
     private RestaurantEntity restaurant;
 
     public int getId() {

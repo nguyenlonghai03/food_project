@@ -45,7 +45,6 @@ public class SecSecurityConfig {
 
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
-        System.out.println("AuthenticationManager");
         // AuthenticationManagerBuilder có thằng này mới xài đc customProvider
         // Khởi tạo AuthenticationManagerBuilder
         AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
@@ -64,7 +63,6 @@ public class SecSecurityConfig {
     // Nơi quy định các rule liên quan tới bảo mật và quyền truy cập
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        System.out.println("filterChain");
         /*
         * antMatchers: Định nghĩa link cần xác thực
         * authenticated: Bắt buộc phải chứng thực(đăng nhập)

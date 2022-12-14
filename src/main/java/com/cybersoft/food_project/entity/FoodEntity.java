@@ -1,5 +1,6 @@
 package com.cybersoft.food_project.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -26,6 +27,7 @@ public class FoodEntity {
 
     @ManyToOne()
     @JoinColumn(name="id_restaurant")
+//    @JsonIgnore
     private RestaurantEntity restaurant;
 
     @OneToOne(mappedBy = "food")

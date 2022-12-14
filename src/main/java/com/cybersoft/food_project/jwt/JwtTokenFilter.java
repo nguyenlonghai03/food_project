@@ -29,7 +29,6 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         // Cắt header và lấy token
-        System.out.println("doFilterInternal");
         String token = getTokenFromHeader(request);
         if(token != null) {
             // Kiểm tra token có phải do hệ thống của mình sinh ra hay không
@@ -40,7 +39,6 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
                 //Map.class là biên về kiểu dữ liệu map
                 Map<String, Object> map = gson.fromJson(json, Map.class); // bieens ve doi tuong Map
-                System.out.println("kiem tra " + json+ "" + map.get("type").toString());
 
                 if (StringUtils.hasText(map.get("type").toString()) &&
                         !map.get("type").toString().equals("refresh")) {
@@ -52,13 +50,11 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
             }
         }
-        System.out.println("Token " + token);
 //        Để đi tiếp
                 filterChain.doFilter(request, response); // k có cái này sẽ k redirect tới cái người dùng gọi
     }
 
     private String getTokenFromHeader (HttpServletRequest request) {
-        System.out.println("getTokenFromHeader");
         // Lấy giá trị token ở header có keylà authorization
         // 1 Header có nhiều key
         String strToken = request.getHeader("Authorization");
