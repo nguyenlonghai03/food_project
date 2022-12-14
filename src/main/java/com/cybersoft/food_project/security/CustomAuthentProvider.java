@@ -28,7 +28,6 @@ public class CustomAuthentProvider implements AuthenticationProvider {
 PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        System.out.println("authentication");
         // Xử lý đăng nhập thành công hay thất bại
         String username = authentication.getName();
         // password lưu trong Credentials vì đã đc mã hóa rồi

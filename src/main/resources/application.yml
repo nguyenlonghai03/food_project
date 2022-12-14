@@ -19,3 +19,7 @@ server:
 #@Value(${tenKey}): Lấy giá trị key bên application thành biến
 file:
   upload-dir: C:\Users\HP\OneDrive\Máy tính\img
+
+redis:
+  host: localhost
+  port: 6379

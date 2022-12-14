@@ -38,7 +38,6 @@ public class LoginController {
     @PostMapping("")
     public ResponseEntity<DataResponse> signin(@RequestBody SignInRequest request) { //? :là trả về kiểu gì thì chưa biết
 //        boolean isSuccess = loginService.checkLogin(request.getUsername(), request.getPassword());
-        System.out.println("controller");
         // UsernamePasswordAuthenticationToken nhớ giống kiểu return bên provider
         UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(request.getUsername(),
                 request.getPassword());

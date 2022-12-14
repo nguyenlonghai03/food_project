@@ -20,7 +20,6 @@ public class FileUploadServiceImp implements FileUploadService {
     private Path rootPath;
     @Autowired
     public FileUploadServiceImp(FileStorageProperties fileStorageProperties) throws IOException {
-        System.out.println("Kiem tra hinh service");
         // Định nghĩa đường dẫn root
         this.rootPath = Paths.get(fileStorageProperties.getUploadDir()).toAbsolutePath().normalize();
         if(Files.notExists(this.rootPath)){
